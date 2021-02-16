@@ -40,3 +40,27 @@ https://cloud.google.com/community/tutorials/getting-started-on-gcp-with-terrafo
 これよさそう
 
 firewallとGCEはタグでつながっている
+
+```
+# ブラウザが立ち上がるのでログイン
+gcloud auth login
+# project idを得る
+gcloud config get-value project
+# terraformユーザを作って権限を渡してcredentialをjsonに出力
+gcloud config set project <project-id>
+gcloud iam service-accounts create terraform
+# 雑にeditor権限渡しているけど本当はもっと絞るべき
+gcloud projects add-iam-policy-binding <project-id> --member serviceAccount:<account> --role roles/editor
+gcloud iam service-accounts keys create ./cred.json --iam-account <account>
+```
+
+```
+# 初回.tfファイルがあるディレクトリで、.terraform-versionファイルがあることを確認して行う
+terraform init
+# どんなリソースが作られるかチェック
+terraform plan
+# リソースを作成(尋ねられるので、yesとタイプする)
+terraform apply
+# リソースを消去する(yesとタイプ)
+terraform destroy
+```
