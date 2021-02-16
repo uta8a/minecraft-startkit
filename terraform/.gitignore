@@ -1,0 +1,7 @@
+typescript
+.terraform
+.terraform.tfstate*
+terraform.tfstate*
+
+var.tf
+cred.json
