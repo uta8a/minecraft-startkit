@@ -23,6 +23,7 @@
 
 # log
 - gcloud, tfenvを入れておく
+- terraform用GCPアカウント(GCEをeditできる権限をつけておく)と、予算アラートをやっておく。
 
 ```
 gcloud auth login
