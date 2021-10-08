@@ -11,12 +11,12 @@ resource "google_compute_address" "static" {
 
 resource "google_compute_instance" "minecraft-server" {
   name         = "minecraft-server"
-  machine_type = "n1-standard-1"
+  machine_type = "e2-small"
   zone         = "asia-northeast1-c"
   tags = [ "minecraft-port" ]
   boot_disk {
     initialize_params {
-      image = "ubuntu-os-cloud/ubuntu-1804-bionic-v20210211"
+      image = "ubuntu-os-cloud/ubuntu-2004-lts"
     }
   }
   network_interface {
